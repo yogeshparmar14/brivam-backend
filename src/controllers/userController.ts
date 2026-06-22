@@ -19,6 +19,7 @@ export const getAllUsers = async (req: Request, res: Response): Promise<void> =>
 export const toggleUserStatus = async (req: Request, res: Response): Promise<void> => {
   const user = await User.findById(req.params.id);
   if (!user) { res.status(404).json({ success: false, message: 'User not found' }); return; }
+  if (user.role === 'admin') { res.status(403).json({ success: false, message: 'Cannot modify admin accounts' }); return; }
   user.isActive = !user.isActive;
   await user.save();
   res.json({ success: true, user });

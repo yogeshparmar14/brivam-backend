@@ -9,7 +9,7 @@ const cartItemSchema = new Schema({
   quantity: { type: Number, required: true, min: 1 },
   price: { type: Number, required: true },
   mrp: { type: Number, required: true },
-  image: { type: String, required: true },
+  image: { type: String, default: '' },
   name: { type: String, required: true },
 });
 

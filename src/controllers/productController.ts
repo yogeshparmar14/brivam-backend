@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import slugify from 'slugify';
 import Product from '../models/Product';
+import Category from '../models/Category';
 
 export const getProducts = async (req: Request, res: Response): Promise<void> => {
   const {
@@ -9,7 +10,11 @@ export const getProducts = async (req: Request, res: Response): Promise<void> =>
   } = req.query;
 
   const filter: Record<string, unknown> = { isActive: true };
-  if (category) filter.category = category;
+  if (category) {
+    const cat = await Category.findOne({ slug: category as string });
+    if (cat) filter.category = cat._id;
+    else { res.json({ success: true, products: [], pagination: { page: 1, limit: Number(limit), total: 0, pages: 0 } }); return; }
+  }
   if (featured) filter.isFeatured = true;
   if (tags) filter.tags = { $in: (tags as string).split(',') };
   if (search) filter.$text = { $search: search as string };
@@ -67,6 +72,12 @@ export const deleteProduct = async (req: Request, res: Response): Promise<void> 
   const product = await Product.findByIdAndUpdate(req.params.id, { isActive: false });
   if (!product) { res.status(404).json({ success: false, message: 'Product not found' }); return; }
   res.json({ success: true, message: 'Product removed' });
+};
+
+export const getAdminProduct = async (req: Request, res: Response): Promise<void> => {
+  const product = await Product.findById(req.params.id).populate('category', 'name slug');
+  if (!product) { res.status(404).json({ success: false, message: 'Product not found' }); return; }
+  res.json({ success: true, product });
 };
 
 export const getAdminProducts = async (req: Request, res: Response): Promise<void> => {

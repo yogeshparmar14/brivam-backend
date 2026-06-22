@@ -6,7 +6,7 @@ let counter = 0;
 const orderItemSchema = new Schema({
   product: { type: Schema.Types.ObjectId, ref: 'Product', required: true },
   name: { type: String, required: true },
-  image: { type: String, required: true },
+  image: { type: String, default: '' },
   variantSku: { type: String, required: true },
   flavor: String,
   weight: String,

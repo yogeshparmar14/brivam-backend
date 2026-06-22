@@ -5,7 +5,7 @@ import Coupon from '../models/Coupon';
 import { AuthRequest } from '../types';
 
 export const getCart = async (req: AuthRequest, res: Response): Promise<void> => {
-  const cart = await Cart.findOne({ user: req.user!._id }).populate('product');
+  const cart = await Cart.findOne({ user: req.user!._id });
   res.json({ success: true, cart: cart || { items: [] } });
 };
 
@@ -95,6 +95,10 @@ export const applyCoupon = async (req: AuthRequest, res: Response): Promise<void
 };
 
 export const clearCart = async (req: AuthRequest, res: Response): Promise<void> => {
-  await Cart.findOneAndUpdate({ user: req.user!._id }, { items: [], coupon: undefined });
-  res.json({ success: true, message: 'Cart cleared' });
+  const cart = await Cart.findOneAndUpdate(
+    { user: req.user!._id },
+    { $set: { items: [] }, $unset: { coupon: '' } },
+    { new: true }
+  );
+  res.json({ success: true, cart: cart || { items: [] } });
 };

@@ -17,17 +17,24 @@ const reviewSchema = new Schema<IReview>(
 
 reviewSchema.index({ product: 1, user: 1 }, { unique: true });
 
-reviewSchema.post('save', async function () {
-  const stats = await (this.constructor as typeof mongoose.Model).aggregate([
-    { $match: { product: this.product } },
+async function updateProductStats(productId: unknown) {
+  const Review = mongoose.model('Review');
+  const stats = await Review.aggregate([
+    { $match: { product: productId } },
     { $group: { _id: '$product', avgRating: { $avg: '$rating' }, count: { $sum: 1 } } },
   ]);
-  if (stats.length > 0) {
-    await Product.findByIdAndUpdate(this.product, {
-      averageRating: Math.round(stats[0].avgRating * 10) / 10,
-      reviewCount: stats[0].count,
-    });
-  }
+  await Product.findByIdAndUpdate(productId, {
+    averageRating: stats.length > 0 ? Math.round(stats[0].avgRating * 10) / 10 : 0,
+    reviewCount: stats.length > 0 ? stats[0].count : 0,
+  });
+}
+
+reviewSchema.post('save', async function () {
+  await updateProductStats(this.product);
+});
+
+reviewSchema.post('deleteOne', { document: true, query: false }, async function () {
+  await updateProductStats(this.product);
 });
 
 export default mongoose.model<IReview>('Review', reviewSchema);
