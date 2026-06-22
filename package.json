@@ -1,7 +1,7 @@
 {
-  "name": "brivam-backend",
+  "name": "ojam-backend",
   "version": "1.0.0",
-  "description": "Brivam Protein eCommerce Backend API",
+  "description": "Ojam Protein eCommerce Backend API",
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",

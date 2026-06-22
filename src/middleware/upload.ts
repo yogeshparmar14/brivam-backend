@@ -5,7 +5,7 @@ import cloudinary from '../config/cloudinary';
 const storage = new CloudinaryStorage({
   cloudinary,
   params: async (_req, file) => ({
-    folder: 'brivam/products',
+    folder: 'ojam/products',
     allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
     transformation: [{ width: 800, height: 800, crop: 'limit', quality: 'auto' }],
     public_id: `${Date.now()}-${file.originalname.split('.')[0]}`,

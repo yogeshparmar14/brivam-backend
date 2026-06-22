@@ -24,7 +24,7 @@ const productSchema = new Schema<IProduct>(
     description: { type: String, required: true },
     shortDescription: { type: String, required: true },
     category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
-    brand: { type: String, default: 'BRIVAM' },
+    brand: { type: String, default: 'OJAM' },
     variants: { type: [variantSchema], required: true },
     images: [String],
     tags: [String],

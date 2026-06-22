@@ -1,6 +1,6 @@
-# BRIVAM Backend
+# OJAM Backend
 
-Express + TypeScript REST API for BRIVAM protein supplement eCommerce store.
+Express + TypeScript REST API for OJAM protein supplement eCommerce store.
 
 ## Tech Stack
 
@@ -24,8 +24,8 @@ Express + TypeScript REST API for BRIVAM protein supplement eCommerce store.
 ### 1. Clone the repo
 
 ```bash
-git clone git@github.com:yogeshparmar14/brivam-backend.git
-cd brivam-backend
+git clone git@github.com:yogeshparmar14/ojam-backend.git
+cd ojam-backend
 ```
 
 ### 2. Install dependencies
@@ -47,7 +47,7 @@ PORT=5000
 NODE_ENV=development
 
 # MongoDB Atlas — direct connection string (recommended on Windows)
-MONGODB_URI=mongodb://username:password@shard-00-00.xxxxx.mongodb.net:27017,shard-00-01.xxxxx.mongodb.net:27017,shard-00-02.xxxxx.mongodb.net:27017/brivam?authSource=admin&tls=true&retryWrites=true&w=majority
+MONGODB_URI=mongodb://username:password@shard-00-00.xxxxx.mongodb.net:27017,shard-00-01.xxxxx.mongodb.net:27017,shard-00-02.xxxxx.mongodb.net:27017/ojam?authSource=admin&tls=true&retryWrites=true&w=majority
 
 # JWT
 JWT_SECRET=your_strong_secret_here
@@ -79,7 +79,7 @@ npm run seed
 ```
 
 Admin credentials after seeding:
-- Email: `admin@brivam.in`
+- Email: `admin@ojam.in`
 - Password: `Admin@123`
 
 ### 5. Run the development server

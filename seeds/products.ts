@@ -17,12 +17,12 @@ const categories = [
 
 const products = [
   {
-    name: 'BRIVAM Whey Protein Isolate - Chocolate',
-    slug: 'brivam-whey-protein-isolate-chocolate',
+    name: 'OJAM Whey Protein Isolate - Chocolate',
+    slug: 'ojam-whey-protein-isolate-chocolate',
     shortDescription: '27g protein per serving | <1g fat | Instantized for smooth mixability',
-    description: '<p>BRIVAM Whey Protein Isolate is our premium protein formula, delivering 27g of pure whey protein isolate per serving with minimal carbs and fat. Engineered for serious athletes who demand the best.</p><p>Our advanced filtration process removes excess fat, lactose, and carbs, leaving you with a pure, fast-absorbing protein that gets to your muscles when they need it most.</p>',
+    description: '<p>OJAM Whey Protein Isolate is our premium protein formula, delivering 27g of pure whey protein isolate per serving with minimal carbs and fat. Engineered for serious athletes who demand the best.</p><p>Our advanced filtration process removes excess fat, lactose, and carbs, leaving you with a pure, fast-absorbing protein that gets to your muscles when they need it most.</p>',
     categorySlug: 'whey-protein',
-    brand: 'BRIVAM',
+    brand: 'OJAM',
     variants: [
       { flavor: 'Chocolate Fudge', weight: '1kg', sku: 'BRV-WPI-CHO-1KG', price: 2499, mrp: 3199, stock: 150, images: [] },
       { flavor: 'Vanilla Cream', weight: '1kg', sku: 'BRV-WPI-VAN-1KG', price: 2499, mrp: 3199, stock: 120, images: [] },
@@ -52,12 +52,12 @@ const products = [
     isFeatured: true,
   },
   {
-    name: 'BRIVAM Whey Protein Concentrate - Double Chocolate',
-    slug: 'brivam-whey-protein-concentrate-chocolate',
+    name: 'OJAM Whey Protein Concentrate - Double Chocolate',
+    slug: 'ojam-whey-protein-concentrate-chocolate',
     shortDescription: '24g protein per serving | Great taste | Perfect for everyday use',
-    description: '<p>BRIVAM Whey Protein Concentrate delivers 24g of quality protein per serving at an accessible price point. Ideal for athletes who want consistent protein intake without compromising on quality or taste.</p>',
+    description: '<p>OJAM Whey Protein Concentrate delivers 24g of quality protein per serving at an accessible price point. Ideal for athletes who want consistent protein intake without compromising on quality or taste.</p>',
     categorySlug: 'whey-protein',
-    brand: 'BRIVAM',
+    brand: 'OJAM',
     variants: [
       { flavor: 'Double Chocolate', weight: '1kg', sku: 'BRV-WPC-DC-1KG', price: 1799, mrp: 2299, stock: 200, images: [] },
       { flavor: 'Banana Caramel', weight: '1kg', sku: 'BRV-WPC-BAN-1KG', price: 1799, mrp: 2299, stock: 150, images: [] },
@@ -81,12 +81,12 @@ const products = [
     isFeatured: true,
   },
   {
-    name: 'BRIVAM Plant Protein - Pea & Rice Blend',
-    slug: 'brivam-plant-protein-pea-rice',
+    name: 'OJAM Plant Protein - Pea & Rice Blend',
+    slug: 'ojam-plant-protein-pea-rice',
     shortDescription: '22g complete plant protein | Vegan | Easy to digest',
     description: '<p>Our Plant Protein blends pea protein isolate and brown rice protein to deliver a complete amino acid profile in a 100% vegan formula. No compromise on quality, taste, or results.</p>',
     categorySlug: 'plant-protein',
-    brand: 'BRIVAM',
+    brand: 'OJAM',
     variants: [
       { flavor: 'Chocolate', weight: '1kg', sku: 'BRV-PLP-CHO-1KG', price: 2199, mrp: 2799, stock: 100, images: [] },
       { flavor: 'Vanilla', weight: '1kg', sku: 'BRV-PLP-VAN-1KG', price: 2199, mrp: 2799, stock: 80, images: [] },
@@ -104,12 +104,12 @@ const products = [
     isFeatured: true,
   },
   {
-    name: 'BRIVAM Creatine Monohydrate',
-    slug: 'brivam-creatine-monohydrate',
+    name: 'OJAM Creatine Monohydrate',
+    slug: 'ojam-creatine-monohydrate',
     shortDescription: '5g pure creatine per serving | Micronized | Unflavoured',
     description: '<p>Pure micronized creatine monohydrate. No additives, no fillers, just 5g of the most researched sports nutrition ingredient per serving.</p>',
     categorySlug: 'creatine',
-    brand: 'BRIVAM',
+    brand: 'OJAM',
     variants: [
       { flavor: 'Unflavoured', weight: '300g', sku: 'BRV-CRE-UNF-300G', price: 699, mrp: 899, stock: 300, images: [] },
       { flavor: 'Unflavoured', weight: '500g', sku: 'BRV-CRE-UNF-500G', price: 999, mrp: 1299, stock: 200, images: [] },
@@ -125,12 +125,12 @@ const products = [
     isFeatured: false,
   },
   {
-    name: 'BRIVAM Mass Gainer Pro',
-    slug: 'brivam-mass-gainer-pro',
+    name: 'OJAM Mass Gainer Pro',
+    slug: 'ojam-mass-gainer-pro',
     shortDescription: '1000 calories | 35g protein | For serious bulking',
-    description: '<p>BRIVAM Mass Gainer Pro is engineered for hardgainers who struggle to consume enough calories. With 1000 calories and 35g protein per serving, it helps you build serious size.</p>',
+    description: '<p>OJAM Mass Gainer Pro is engineered for hardgainers who struggle to consume enough calories. With 1000 calories and 35g protein per serving, it helps you build serious size.</p>',
     categorySlug: 'mass-gainer',
-    brand: 'BRIVAM',
+    brand: 'OJAM',
     variants: [
       { flavor: 'Chocolate', weight: '3kg', sku: 'BRV-MG-CHO-3KG', price: 2799, mrp: 3599, stock: 80, images: [] },
       { flavor: 'Vanilla', weight: '3kg', sku: 'BRV-MG-VAN-3KG', price: 2799, mrp: 3599, stock: 60, images: [] },
@@ -158,15 +158,15 @@ async function seed() {
   await Product.deleteMany({});
 
   // Create admin user if not exists
-  const adminExists = await User.findOne({ email: 'admin@brivam.in' });
+  const adminExists = await User.findOne({ email: 'admin@ojam.in' });
   if (!adminExists) {
     await User.create({
-      name: 'BRIVAM Admin',
-      email: 'admin@brivam.in',
+      name: 'OJAM Admin',
+      email: 'admin@ojam.in',
       password: 'Admin@123',
       role: 'admin',
     });
-    console.log('Admin user created: admin@brivam.in / Admin@123');
+    console.log('Admin user created: admin@ojam.in / Admin@123');
   }
 
   // Create categories
