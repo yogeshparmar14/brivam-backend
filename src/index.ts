@@ -17,6 +17,7 @@ import orderRoutes from './routes/orders';
 import reviewRoutes from './routes/reviews';
 import couponRoutes from './routes/coupons';
 import userRoutes from './routes/users';
+import uploadRoutes from './routes/upload';
 import { notFound, errorHandler } from './middleware/error';
 
 const app = express();
@@ -43,6 +44,7 @@ app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/coupons', couponRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/upload', uploadRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
