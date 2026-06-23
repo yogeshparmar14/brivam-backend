@@ -3,3 +3,4 @@ dist/
 .env
 *.log
 *.pem
+ojam-s3-user_accessKeys.csv
