@@ -24,12 +24,11 @@ const CF_DOMAIN = process.env.CLOUDFRONT_DOMAIN!;
 const MONGODB_URI = process.env.MONGODB_URI!;
 
 const LOCAL_IMAGES = [
-  'C:/Users/Mryor/Downloads/OJAM (4).png',   // Jar hero
-  'C:/Users/Mryor/Downloads/OJAM (3).png',   // Feature / claims
-  'C:/Users/Mryor/Downloads/OJAM (1).png',   // No more lost scoops
-  'C:/Users/Mryor/Downloads/OJAM (2).png',   // No more lost scoops alt
-  'C:/Users/Mryor/Downloads/Unflavoured_ECOM_1kg_NI.webp',  // Nutrition info
-  'C:/Users/Mryor/Downloads/1kg_Unflavoured_Compare.webp',  // Compare chart
+  'C:/Users/Mryor/Downloads/OJAM (4).png',
+  'C:/Users/Mryor/Downloads/OJAM (3).png',
+  'C:/Users/Mryor/Downloads/OJAM (1).png',
+  'C:/Users/Mryor/Downloads/OJAM (2).png',
+  'C:/Users/Mryor/Downloads/Unflavoured_ECOM_1kg_NI.webp',
 ];
 
 async function uploadFile(localPath: string): Promise<string> {
